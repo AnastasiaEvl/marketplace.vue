@@ -17,10 +17,11 @@ export default {
   },
   methods:{
     ...mapActions([
-        'GET_PRODUCTS_FROM_API'
+        'GET_PRODUCTS_FROM_API',
+        'ADD_TO_CART'
     ]),
-    showChild(data){
-      console.log(data)
+    addToCart(data){
+     this.ADD_TO_CART(data)
     }
   },
   mounted() {
@@ -41,7 +42,7 @@ export default {
     <v-catalog-item v-for="product in products"
     :key="product.article"
     :product_data="product"
-    @sendArticle="showChild"/>
+    @addToCart="addToCart"/>
   </div>
   </div>
 
